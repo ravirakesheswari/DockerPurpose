@@ -24,13 +24,11 @@ steps:
     goals: 'package'
 - task: Docker@2
   inputs:
-    containerRegistry: 'Dockertoazuredevops'
-    repository: 'raky8892 / docker2azuredevops'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+    containerRegistry: 'Dockerconnection'
+    command: 'login'
 - task: Docker@2
   inputs:
-    containerRegistry: 'Dockertoazuredevops'
+    containerRegistry: 'Dockerconnection'
     repository: 'raky8892 / docker2azuredevops'
     command: 'buildAndPush'
     Dockerfile: '**/AzureDockerfile'
