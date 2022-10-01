@@ -22,3 +22,15 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Dockertoazuredevops'
+    repository: 'raky8892 / docker2azuredevops'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Dockertoazuredevops'
+    repository: 'raky8892 / docker2azuredevops'
+    command: 'buildAndPush'
+    Dockerfile: '**/AzureDockerfile'
